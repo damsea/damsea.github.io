@@ -1,1 +1,55 @@
-hello world
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <script src="https://damsea.github.io/import.js">
+       
+    </script>
+    <script>
+         import_script(sendfile)
+    </script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
+	<title>repl.it</title>
+  <style>
+      div{
+        text-align:center;
+        padding:3%;
+        border:thin solid black;
+      }
+
+      input{
+        display: none;
+      }
+      label{
+        cursor:pointer;
+      }
+      #imageName{
+        color:green;
+      }
+      
+  </style>
+</head>
+
+<body>
+    <div>
+      <label style="font-family: Arial" for="inputTag">
+        Выберите фотографию <br/><br><br><br>
+        <i class="fa fa-2x fa-camera"></i>
+        <input id="inputTag" type="file"/>
+        <br/>
+        <span id="imageName"></span>
+      </label><br>
+      <button style="margin-top:50px;width:100px;height: 30px;color: white;background: rgba(34, 85, 253, 0.877);border-radius:3px;border: 0px;" class="but" onclick="s()">Отправить</button>
+    </div>
+
+    <script>
+     function s(){
+        var file=document.getElementById('inputTag');
+        sendfile(file)
+     }
+    </script>
+  </body>
+</html>
