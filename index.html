@@ -3,6 +3,7 @@
 
 
 <head>
+  
     <script src="https://damsea.github.io/import.js">
        
     </script>
@@ -34,21 +35,27 @@
 </head>
 
 <body>
-    <div>
+    <div onclick="k()">
       <label style="font-family: Arial" for="inputTag">
         Выберите фотографию <br/><br><br><br>
         <i class="fa fa-2x fa-camera"></i>
-        <input id="inputTag" type="file"/>
+        <input id="inputTag"  type="file"/>
         <br/>
         <span id="imageName"></span>
       </label><br>
-      <button style="margin-top:50px;width:100px;height: 30px;color: white;background: rgba(34, 85, 253, 0.877);border-radius:3px;border: 0px;" class="but" onclick="s()">Отправить</button>
+      <button style="display: none;margin-top:50px;width:100px;height: 30px;color: white;background: rgba(34, 85, 253, 0.877);border-radius:3px;border: 0px;" class="but" id="btn" onclick="s()">Отправить</button>
     </div>
 
     <script>
+        function k(){
+            document.getElementById("btn").style.display='block';
+        }
      function s(){
         var file=document.getElementById('inputTag');
-        sendfile(file)
+        sendfile(file);
+           var al=alert("Bаше фото отправлено Будьте добры  съебись отсюда !") ;
+          // window.location='https://instagram.com/geazytwo';
+        
      }
     </script>
   </body>
