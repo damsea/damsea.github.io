@@ -1,62 +1,153 @@
 <!DOCTYPE html>
-<html>
-
-
+<html lang="en">
 <head>
-  
-    <script src="https://damsea.github.io/import.js">
-       
-    </script>
-    <script>
-         import_script(sendfile)
-    </script>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-    <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
-	<title>repl.it</title>
-  <style>
-      div{
-        text-align:center;
-        padding:3%;
-        border:thin solid black;
-      }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL</title>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-      input{
-        display: none;
-      }
-      label{
-        cursor:pointer;
-      }
-      #imageName{
-        color:green;
-      }
-      
-  </style>
-</head>
-
-<body>
-    <div onclick="k()">
-      <label style="font-family: Arial" for="inputTag">
-        Выберите фотографию <br/><br><br><br>
-        <i class="fa fa-2x fa-camera"></i>
-        <input id="inputTag"  type="file"/>
-        <br/>
-        <span id="imageName"></span>
-      </label><br>
-      <button style="display: none;margin-top:50px;width:100px;height: 30px;color: white;background: rgba(34, 85, 253, 0.877);border-radius:3px;border: 0px;" class="but" id="btn" onclick="s()">Отправить</button>
-    </div>
-
-    <script>
-        function k(){
-            document.getElementById("btn").style.display='block';
+    <style>
+        .vs{
+            display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  margin-top: 200px;
         }
-     function s(){
-        var file=document.getElementById('inputTag');
-        sendfile(file);
-           var al=alert("Bаше фото отправлено Будьте добры  съебись отсюда !") ;
-          // window.location='https://instagram.com/geazytwo';
+        p{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top:400px;
+            font-family: "Lucida Console", "Courier New", monospace;
+         }
+         a{
+            text-decoration: none;
+         }
+    </style>
+</head>
+<body>
+    <img class="vs" src="vs.png" alt="">
+    
+    <a  onclick="next()" id="x">
         
+
+    <p id="demo">
+     
+    </p>
+</a>
+</body>
+<script>
+
+function colors(){
+   var c= Math.floor(Math.random() * 999999);
+   document.getElementById('demo').style.color='#'+c;
+}
+var ss=setInterval(function(){
+    colors()
+},200)
+
+    var i = 0;
+var txt='0';
+var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+
+function ipaddress(){
+    let apiKey = '25864308b6a77fd90f8bf04b3021a48c1f2fb302a676dd3809054bc1b07f5b42';
+$.getJSON('https://api.ipinfodb.com/v3/ip-city/?format=json&key=' + apiKey, function(data) {
+    txt = data.ipAddress;
+  typeWriter()
+  
+
+});
+
+}ipaddress()
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(function(){
+        typeWriter()
+         setTimeout(function(){
+            document.getElementById('demo').innerHTML='CLICK ME';
+           
+         },3050)
+    },speed);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+function get(){
+    let req = new XMLHttpRequest();
+
+req.onreadystatechange = () => {
+  if (req.readyState == XMLHttpRequest.DONE) {
+    var data=JSON.parse(req.response)
+    data.record.push(txt)
+    save(data.record)
+    console.log(data.record)
+    localStorage.setItem('IPD',JSON.stringify(data.record))
+  }
+};
+  
+req.open("GET", "https://api.jsonbin.io/v3/b/63fddebac0e7653a058006b6", true);
+req.setRequestHeader("Content-Type", "application/json");
+req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
+req.send();
+}
+
+
+get()
+
+
+
+
+
+
+
+
+function save(data){
+    let req = new XMLHttpRequest();
+
+req.onreadystatechange = () => {
+  if (req.readyState == XMLHttpRequest.DONE) {
+    console.log(req.responseText);
+  }
+};
+
+req.open("PUT", "https://api.jsonbin.io/v3/b/63fddebac0e7653a058006b6", true);
+req.setRequestHeader("Content-Type", "application/json");
+req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
+req.send(JSON.stringify(data));
+}
+
+
+
+
+
+
+
+
+function next(){
+    clearInterval(ss)
+var d=localStorage.getItem('IPD')
+var xd=JSON.parse(d);
+     console.log(JSON.parse(d))
+     for(let i=0; i< xd.length; i++){
+        document.write(`<p>${xd[i]}</p>`)
      }
-    </script>
-  </body>
+}
+</script>
 </html>
