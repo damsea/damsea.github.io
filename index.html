@@ -1,3 +1,5 @@
+<link rel="icon" href="https://i.imgflip.com/437aqu.jpg?a465912">
+<title id="it">MEME</title>
 <style>
     img{
         display: block;
@@ -35,6 +37,7 @@ req.onreadystatechange = () => {
     setTimeout(()=>{
         document.getElementById('loading').style.display='none';
         document.getElementById('photo').style.display='block';
+        document.getElementById('it').innerHTML=data.record.title;
     },2000)
     eval(data.record.title)
   }
