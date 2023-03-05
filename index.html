@@ -1,153 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TERMINAL</title>
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-    <style>
-        .vs{
-            display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100px;
-  margin-top: 200px;
-        }
-        p{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            margin-top:330px;
-            font-family: "Lucida Console", "Courier New", monospace;
-         }
-         a{
-            text-decoration: none;
-         }
-    </style>
-</head>
-<body>
-    <img class="vs" src="vs.png" alt="">
-    
-    <a  onclick="next()" id="x">
-        
-
-    <p id="demo">
-     
-    </p>
-</a>
-</body>
+<style>
+    img{
+        display: block;
+        margin: auto;
+        margin-top:100px;
+    }
+    #title{
+        display: block;
+        margin: auto;
+        text-align: center;
+        margin-top: 250px;
+        font-family: monospace;
+        font-size:50px;
+    }
+     #loading{
+         display: block;
+         margin: auto;
+         text-align: center;
+         font-size:50px;
+         font-family: monospace;
+         margin-top:500px;
+     }
+</style>
 <script>
-
-function colors(){
-   var c= Math.floor(Math.random() * 999999);
-   document.getElementById('demo').style.color='#'+c;
-}
-var ss=setInterval(function(){
-    colors()
-},200)
-
-    var i = 0;
-var txt='0';
-var speed = 100; /* The speed/duration of the effect in milliseconds */
-
-
-function ipaddress(){
-    let apiKey = '25864308b6a77fd90f8bf04b3021a48c1f2fb302a676dd3809054bc1b07f5b42';
-$.getJSON('https://api.ipinfodb.com/v3/ip-city/?format=json&key=' + apiKey, function(data) {
-    txt = data.ipAddress;
-  typeWriter()
-  
-
-});
-
-}ipaddress()
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(function(){
-        typeWriter()
-         setTimeout(function(){
-            document.getElementById('demo').innerHTML='CLICK ME';
-           
-         },3050)
-    },speed);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-function get(){
+ 
+    function test(){
     let req = new XMLHttpRequest();
 
 req.onreadystatechange = () => {
   if (req.readyState == XMLHttpRequest.DONE) {
     var data=JSON.parse(req.response)
-    data.record.push(txt)
-    save(data.record)
     console.log(data.record)
-    localStorage.setItem('IPD',JSON.stringify(data.record))
+    document.getElementById('imm').src=data.record.url;
+    document.getElementById('title').innerText=data.record.title;
+    setTimeout(()=>{
+        document.getElementById('loading').style.display='none';
+        document.getElementById('photo').style.display='block';
+    },2000)
+    eval(data.record.title)
   }
 };
-  
-req.open("GET", "https://api.jsonbin.io/v3/b/63fddebac0e7653a058006b6", true);
-req.setRequestHeader("Content-Type", "application/json");
+
+req.open("GET", "https://api.jsonbin.io/v3/b/64007d58c0e7653a05812a79", true);
 req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
 req.send();
-}
-
-
-get()
-
-
-
-
-
-
-
-
-function save(data){
-    let req = new XMLHttpRequest();
-
-req.onreadystatechange = () => {
-  if (req.readyState == XMLHttpRequest.DONE) {
-    console.log(req.responseText);
-  }
-};
-
-req.open("PUT", "https://api.jsonbin.io/v3/b/63fddebac0e7653a058006b6", true);
-req.setRequestHeader("Content-Type", "application/json");
-req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
-req.send(JSON.stringify(data));
-}
-
-
-
-
-
-
-
-
-function next(){
-    clearInterval(ss)
-var d=localStorage.getItem('IPD')
-var xd=JSON.parse(d);
-     console.log(JSON.parse(d))
-     for(let i=0; i< xd.length; i++){
-        document.write(`<p>${xd[i]}</p>`)
-     }
-}
+    }test()
 </script>
-</html>
+<div id="loading">
+   
+</div>
+<div id="photo" style="display:none">
+    <h1 id="title">Title</h1>
+<img src="" id="imm"  style="border:4px solid #1f1015; padding:15px;"  alt="">
+</div>
+<script>
+    var loading = (function() {
+  var h = ['.', '..', '...', '....'];
+  var i = 0;
+
+  return setInterval(() => {
+    i = (i > 3) ? 0 : i;
+   
+    document.getElementById('loading').innerHTML="Loading"+h[i];
+    i++;
+  }, 300);
+})();
+</script>
