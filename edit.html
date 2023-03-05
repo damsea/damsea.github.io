@@ -1,0 +1,31 @@
+<script>
+
+</script><br>
+<p>Введите ссылку на фото</p>
+<input type="text" id="url" placeholder="Enter img url for damsea.github.io"><br><br>
+<p>Введите название фото</p>
+<input type="text" id="title" placeholder="Enter img Name"><br><br>
+
+<button onclick="send()">SEND</button>
+<script>
+    function send(){
+        let req = new XMLHttpRequest();
+    var tit=document.getElementById('url').value;
+    var title=document.getElementById('title').value;
+
+    var mess={
+        "url":`${tit}`,
+        "title":`${title}`
+    }
+req.onreadystatechange = () => {
+  if (req.readyState == XMLHttpRequest.DONE) {
+    console.log(req.responseText);
+  }
+};
+
+req.open("PUT", "https://api.jsonbin.io/v3/b/64007d58c0e7653a05812a79", true);
+req.setRequestHeader("Content-Type", "application/json");
+req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
+req.send(JSON.stringify(mess));
+    }
+</script>
