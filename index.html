@@ -31,7 +31,7 @@ req.onreadystatechange = () => {
     var data=JSON.parse(req.response)
     console.log(data.record)
     document.getElementById('imm').src=data.record.url;
-    document.getElementById('title').innerText=data.record.title;
+    document.getElementById('title').innerHTML=data.record.title;
     setTimeout(()=>{
         document.getElementById('loading').style.display='none';
         document.getElementById('photo').style.display='block';
