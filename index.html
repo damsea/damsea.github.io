@@ -35,6 +35,7 @@ req.onreadystatechange = () => {
     document.getElementById('imm').src=data.record.url;
     document.getElementById('title').innerHTML=data.record.title;
     setTimeout(()=>{
+        clearInterval(loading)
         document.getElementById('loading').style.display='none';
         document.getElementById('photo').style.display='block';
         document.getElementById('it').innerHTML=data.record.title;
