@@ -8,5 +8,5 @@ var keygen='https://damsea.github.io/import/keygen.js';
 function script(url){
 const para = document.createElement("script");
 para.src = url;
-document.body.appendChild(para);
+document.head.appendChild(para);
 }
