@@ -1,0 +1,23 @@
+
+[GET REQUEST]
+
+$ajax.get({
+    url:"Your api url",
+    key:"Your x-master-key"
+},(res)=>{
+   // res [This request data]
+    console.log(res)
+})
+
+
+
+[PUT REQUEST]
+
+$ajax.post({
+    url:"Your api url",
+    key:"Your x-master-key",
+    data:"JSON data"
+},(res)=>{
+   // res [This request response]
+    console.log(res)
+})
