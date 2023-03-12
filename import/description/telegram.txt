@@ -1,0 +1,23 @@
+// https://damsea.github.io
+// [Instagram] @geazytwo
+
+[Telegram] it's masive
+  [Telegram] function {
+    help:f,
+    sendMessage:f,
+    data:f,
+}
+
+Telegram.help() return this site ;
+
+Telegram.sendMessage('Your bot token',{
+    id:'Your telegram chat id',
+    data:'Hello world'
+},a=>{ 
+   // It's callback function a this json response
+   console.log(a)
+})
+
+Telegram.data('Secret key [For Giving token and id json format]')
+Telegram.data('Secret key').token | return token
+Telegram.id('Secret key').id | return id
