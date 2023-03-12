@@ -40,5 +40,8 @@ const $ajax={
     })
     .then((data) => {return 'POST';})   
     return 'POST'
-    }
+    },
+    help:()=>{
+          window.location="https://damsea.github.io/import/description/ajax.txt";
+       }
     }
