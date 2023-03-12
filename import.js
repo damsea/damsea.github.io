@@ -4,6 +4,7 @@ var sha256='https://blcobar.github.io/import/sha256.js';
 var loading="https://blcobar.github.io/import/loading.js";
 var sendfile='https://damsea.github.io/import/sendfile.js';
 var api='https://damsea.github.io/import/api.js';
+var ajax='https://damsea.github.io/import/ajax.js';
 var keygen='https://damsea.github.io/import/keygen.js';
 function script(url){
 const para = document.createElement("script");
