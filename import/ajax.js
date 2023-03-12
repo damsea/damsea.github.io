@@ -1,4 +1,6 @@
-    const $ajax={
+   
+
+const $ajax={
         get:(data,clb)=>{
             fetch(data.url,{
         method:"GET",
@@ -27,16 +29,16 @@
         },
         body:JSON.stringify(data.data)
     })
-    .then((res) => res.json())
-    .then((data) => {
+    .then((res) => {
         if(clb == undefined){
             console.error("Not callback function !")
             console.log(data)
         }
         if(clb !== undefined){
-            clb(data)
+            clb(res)
         }
-    })   
-    return 'GET'
+    })
+    .then((data) => {return 'POST';})   
+    return 'POST'
     }
     }
