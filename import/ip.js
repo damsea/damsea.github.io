@@ -1,4 +1,4 @@
-const ip={
+const getip={
     get:(f)=>{
         fetch("https://api.db-ip.com/v2/free/self", {
             "referrerPolicy": "strict-origin-when-cross-origin",
