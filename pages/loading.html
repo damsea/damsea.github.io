@@ -1,0 +1,48 @@
+<style>
+    img{
+        
+        display: block;
+        margin: auto;
+        margin-top: 350px;
+        width: 300px;
+    }
+    p{
+        display: block;
+        margin: auto;
+        text-align: center;
+        margin-top:800px;
+        font-size:40px;
+        font-family: monospace;
+    }
+    @media all and (min-width:1000px){
+            img{
+                
+                width:100px;
+                margin-top:100px;
+               
+            }
+            p{
+                margin-top:400px;
+                font-size:20px;
+            }
+    }
+</style>
+
+
+<script>
+
+var loading = (function() {
+  var h = ['.|', '../', '...-', '....\\'];
+  var i = 0;
+
+  return setInterval(() => {
+    i = (i > 3) ? 0 : i;
+  
+    document.getElementById('ld').innerHTML='Loading'+h[i];
+    i++;
+  }, 300);
+})();
+
+</script>
+<img src="dev.png" alt="">
+<p id="ld"></p>
