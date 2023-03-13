@@ -1,0 +1,3 @@
+ip.get(function(d){
+      console.log(d.ipAddress)
+    })
