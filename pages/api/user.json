@@ -1,0 +1,11 @@
+{
+    "username":"shoh",
+    "password":"f95b6cde20ee1dcdc8ed284f19bd272a04d7846d9307ec43f2517aea4037ff35",
+    "status":"admin",
+    "apikeyhash":"U2FsdGVkX19kVfmcaFqYg+r5mfN9uiUJWgFnfnAQZktqM6q6p0e5T0nj20PfRfjfPSzlhhzlaidcIDrWbbgNudHstZ6KPGPmPyiGeM3wH9o=",
+    "db_url":"https://api.jsonbin.io/v3/b/640ab216ace6f33a22ec439d",
+    "hash":[
+        "sha256",
+        "aes"
+    ]
+}
