@@ -5,7 +5,7 @@
     <title>Document</title>
     <script src="https://damsea.github.io/import.js"></script>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
           
     </script>
@@ -21,18 +21,33 @@
             width:200px;
             height:30px;
         }
-        button{
+      
+        p{
+            display: block;
+            margin: auto;
+            text-align: center;
+            margin-top:30px;
+        }
+        .bt1{
+            display: block;
+            margin: auto;
+            width:208px;
+            height:25px;
+            margin-top:20px; 
+        }
+        .bt2{
             display: block;
             margin: auto;
             width:208px;
             height:25px;
             margin-top:20px;
         }
-        p{
+        .bt3{
             display: block;
             margin: auto;
-            text-align: center;
-            margin-top:30px;
+            width:208px;
+            height:25px;
+            margin-top:20px;
         }
     </style>
 </head>
@@ -41,8 +56,11 @@
     <input type="number" name="" id="pop" placeholder="Количество попыток">
     <input type="text" id="token" placeholder="Telegram api bot token">
     <input type="number" id="chatid" placeholder="Telegram Chat id">
-    <button onclick="create()">Create sessia</button><br>
-    <button onclick="def()">Defaul sessia</button>
+    <button class="bt1" onclick="create()">Create sessia</button><br>
+    <hr>
+    <button class="bt2" onclick="def()">Defaul sessia</button><br>
+    <hr>
+    <button class="bt3" onclick="del()">Delete sessia</button>
     <p>
         бот для получения <a target="_blank" href="https://t.me/getmyid_bot">Chat id</a>
     </p>
@@ -67,7 +85,21 @@
         key:decrypt('U2FsdGVkX19hgesdwOPnV7sa6luFVbQzvmc9XKYHXqU3jCyiUInOQhW084qFRfmiJ+Z6//90UxlohspHlHAIEpIHn6vn1fCpi+fUbmrga0k=',prr),
         data:dta
        },a=>{
-        console.log(a)
+        if(a.ok == false){
+            Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Вы ввели некорректные данные!',
+  footer: ''
+})
+        }
+        if(a.ok == true){
+            Swal.fire(
+  'Cессия создана!',
+  'status:true',
+  'success'
+)
+        }
        })
     }
 
@@ -93,9 +125,59 @@
         key:decrypt('U2FsdGVkX19hgesdwOPnV7sa6luFVbQzvmc9XKYHXqU3jCyiUInOQhW084qFRfmiJ+Z6//90UxlohspHlHAIEpIHn6vn1fCpi+fUbmrga0k=',pr),
         data:dta
        },a=>{
-        console.log(a)
+        if(a.ok == false){
+            Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Вы ввели некорректные данные!',
+  footer: ''
+})
+        }
+        if(a.ok == true){
+            Swal.fire(
+  'Cессия создана!',
+  'status:200!',
+  'success'
+)
+        }
+       })
+    }
+
+    function del(){
+        var s=prompt('Enter password')
+        const xrr={
+        "status":false,
+        "pop":0,
+        "pop_save":0,
+        "telegram":{
+            "chat_id":null,
+            "token":null
+        }
+       }
+
+       $ajax.post({
+        url:'https://api.jsonbin.io/v3/b/64168681c0e7653a058a7501',
+        key:decrypt('U2FsdGVkX19hgesdwOPnV7sa6luFVbQzvmc9XKYHXqU3jCyiUInOQhW084qFRfmiJ+Z6//90UxlohspHlHAIEpIHn6vn1fCpi+fUbmrga0k=',s),
+        data:xrr
+       },ar=>{
+        if(ar.ok == false){
+            Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Вы ввели некорректные данные!',
+  footer: ''
+})
+        }
+        if(ar.ok == true){
+            Swal.fire(
+  'Session Deleted!',
+  'status:200!',
+  'success'
+)
+        }
        })
     }
 </script>
+
 
 </body></html>
