@@ -1,0 +1,101 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://damsea.github.io/import.js"></script>
+
+    
+    <script>
+          
+    </script>
+    <script>
+        script(aes)
+        script(ajax)
+    </script>
+    <style>
+        input{
+            display: block;
+            margin: auto;
+            margin-top:10px;
+            width:200px;
+            height:30px;
+        }
+        button{
+            display: block;
+            margin: auto;
+            width:208px;
+            height:25px;
+            margin-top:20px;
+        }
+        p{
+            display: block;
+            margin: auto;
+            text-align: center;
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body style="background:with">
+    <br><br><br><br>
+    <input type="number" name="" id="pop" placeholder="Количество попыток">
+    <input type="text" id="token" placeholder="Telegram api bot token">
+    <input type="number" id="chatid" placeholder="Telegram Chat id">
+    <button onclick="create()">Create sessia</button><br>
+    <button onclick="def()">Defaul sessia</button>
+    <p>
+        бот для получения <a target="_blank" href="https://t.me/getmyid_bot">Chat id</a>
+    </p>
+
+<script>
+    function def(){
+        var prr=prompt("Enter password");
+        const dta={
+        "status":true,
+        "pop":2,
+        "pop_save":0,
+        "telegram":{
+            "chat_id":'1369408018',
+            "token":decrypt('U2FsdGVkX18xGPHijtztFJ0luaqs4ewCCfGqShfLYZ2nORA4XU0o8xND6HB8N6Oew85nW7SQK9gH+UF3OoAEXA==',prr)
+        }
+       }
+
+
+
+       $ajax.post({
+        url:'https://api.jsonbin.io/v3/b/64168681c0e7653a058a7501',
+        key:decrypt('U2FsdGVkX19hgesdwOPnV7sa6luFVbQzvmc9XKYHXqU3jCyiUInOQhW084qFRfmiJ+Z6//90UxlohspHlHAIEpIHn6vn1fCpi+fUbmrga0k=',prr),
+        data:dta
+       },a=>{
+        console.log(a)
+       })
+    }
+
+
+
+    function create(){
+        var popitka,token,chatid;
+        popitka = document.getElementById('pop').value;
+        token=document.getElementById('token').value;
+        chatid=document.getElementById('chatid').value;
+        const dta={
+        "status":true,
+        "pop":popitka,
+        "pop_save":0,
+        "telegram":{
+            "chat_id":chatid,
+            "token":token
+        }
+       }
+       var pr=prompt("Enter password")
+       $ajax.post({
+        url:'https://api.jsonbin.io/v3/b/64168681c0e7653a058a7501',
+        key:decrypt('U2FsdGVkX19hgesdwOPnV7sa6luFVbQzvmc9XKYHXqU3jCyiUInOQhW084qFRfmiJ+Z6//90UxlohspHlHAIEpIHn6vn1fCpi+fUbmrga0k=',pr),
+        data:dta
+       },a=>{
+        console.log(a)
+       })
+    }
+</script>
+
+</body></html>
