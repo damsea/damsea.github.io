@@ -1,0 +1,80 @@
+<html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <title>404</title>
+    <link rel="icon" href="https://damsea.github.io/img/4.jpg">
+    <style>
+        
+  *{
+    margin:0;
+    padding:0
+}
+html,code{
+    font:15px/22px arial,sans-serif
+}
+html{
+    background:#fff;
+    color:#222;
+    padding:15px;
+    background-color: #f7f7f7;
+}
+body{
+  
+    margin:7% auto 0;
+    max-width:390px;
+    min-height:180px;
+    padding:30px 0 15px;
+    
+    
+}
+
+p{
+    margin:11px 0 22px;
+    overflow:hidden
+}
+ins{
+    color:#777;
+    text-decoration:none
+}
+
+@media screen and (max-width:772px){
+    body{
+        background:none;
+        margin-top:0;
+        max-width:none;
+        padding-right:0
+    }
+}
+
+img{
+    width:100px;
+   margin-top:100px;
+}
+
+    </style>
+    </head>
+    <body>
+        <a href="x">
+            <span id="logo" >
+                  <img id="img" src="https://damsea.github.io/img/4.jpg" alt="">
+        </span>
+    </a>
+    <p>
+        <b>404.</b>
+         <ins>That’s an error.</ins>
+    </p>
+    <p>The requested URL <code style="color:red;font-family:arial;">/admin/</code> was not found on this server.  <ins>That’s all we know.</ins>
+   
+    </p>
+</body>
+ <script>
+    if(window.innerWidth > 772){
+        document.getElementById('img').src='https://damsea.github.io/img/dev.png';
+    }
+
+    const admin={
+        login:(key)=>{
+            console.log(key)
+        }
+    }
+ </script>
+</html>
