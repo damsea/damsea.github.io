@@ -1,1 +1,1 @@
-wel()
+console.log("idi nahuy")
