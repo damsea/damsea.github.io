@@ -1,0 +1,20 @@
+const fs=require('fs')
+const http=require('https')
+// download("name.txt","https://site.com/file.txt")
+
+function downlaod(name,src){
+const file = fs.createWriteStream(name);
+const request = http.get(src, function(response) {
+   response.pipe(file);
+
+   file.on("finish", () => {
+       file.close();
+           console.log(clc.green("Downloading process !"))
+   });
+});
+
+}
+
+
+downlaod("test.html","https://damsea-cli.github.io/")
+
