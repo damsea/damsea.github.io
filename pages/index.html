@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    form {
+        display: block;
+        margin-top: 100px;
+    }
+    input{
+        display: block;
+        margin: auto;
+        height:20px;
+        width:200px;
+        padding-left:5px;
+        border:2px solid grey;
+        border-radius: 5px;
+    }
+    button{
+        display: block;
+        margin: auto;
+        width:200px;
+        background: rgb(34, 145, 248);
+        color: white;
+        border: none;
+        height:25px;
+        border-radius: 5px;
+    }
+    p{
+        display: block;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <br><br><br><br>
+<div id="form">
+    <p id="err" style="color:red">Вы не ввели данные </p><br>
+    <input type="text" id="first" placeholder="Имя"><br>
+    <input type="text" id="last" placeholder="Фамилия"><br><br>
+    <input type="number" id="tel" placeholder="Номер телефона"><br>
+    <input type="email" id="email" placeholder="Email"><br><br>
+    <input type="text" id="instagram" placeholder="Истаграм акаунт @username"><br>
+    <input type="text" id="telegram" placeholder="Телеграмм аккаунт @username"><br><br>
+    <button onclick="send()">Register</button>
+</div>
+</body>
+<script>
+
+
+function send(){
+    var first=document.getElementById('first').value;
+    var last=document.getElementById('last').value;
+    var tel=document.getElementById('tel').value;
+    var instagram=document.getElementById('instagram').value;
+    var telegram=document.getElementById('telegram').value;
+    var email=document.getElementById('email').value;
+
+if(first == ''){
+    first=null;
+    document.getElementById('err').style.display='block';
+    document.getElementById('first').style.border="2px solid red"
+}
+if(last == ''){
+    last=null;
+    document.getElementById('err').style.display='block';
+    document.getElementById('last').style.border="2px solid red"
+}
+if(tel == ''){
+    tel=null;
+    document.getElementById('err').style.display='block';
+    document.getElementById('tel').style.border="2px solid red"
+}
+if(instagram == ''){
+    instagram=null;
+    document.getElementById('err').style.display='block';
+    document.getElementById('instagram').style.border="2px solid red"
+}
+if(telegram == ''){
+    telegram=null;
+    document.getElementById('err').style.display='block';
+    document.getElementById('telegram').style.border="2px solid red"
+}
+if(email == ''){
+    email=null;
+    document.getElementById('err').style.display='block';
+    document.getElementById('email').style.border="2px solid red"
+}
+
+else{
+    const user_info={
+        "first_name":first,
+        "last_name":last,
+        "number":tel,
+        "instagram":instagram,
+        "telegram":telegram,
+        "email":email
+    }
+      if(user_info.first_name != null){
+        if(user_info.last_name !=null){
+            if(user_info.number !=null){
+                if(user_info.instagram !=null){
+                    if(user_info.telegram !=null){
+                        if(user_info.email !=null){
+
+                            
+fetch('https://dmsapi.vercel.app/apis',{
+    method:'POST',
+    headers:{
+        access:"yju7k8ikiju7yju7kiju7ikiju7",
+        data:JSON.stringify(user_info)
+    }
+})
+.then((r)=>r.json())
+.then((d)=>{
+    
+    console.log(d)
+})
+
+
+                        }
+                    }
+                }
+            }
+        }
+      }
+}
+  
+
+   
+}
+</script>
+</html>
