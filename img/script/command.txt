@@ -1,0 +1,3 @@
+invoke-webrequest  https://file.com -outfile file.name    || for downloading file 
+tasklist   || for view proccesse
+taskkill /IM  proccesse name.exe /F  || for kill proccesse
